@@ -3,14 +3,13 @@ import axios from "axios";
 import { useState } from "react";
 
 export default function NuevaVenta() {
-    const [usuarioId, setUsuarioId] = useState("");
+    const [usuarioId, setUsuarioId] = useState(""); 
     const [productoId, setProductoId] = useState(""); 
     const [cantidad, setCantidad] = useState(""); 
 
-    // Función para enviar la nueva venta
     async function newVenta(e) {
         e.preventDefault(); 
-        const url = "http://localhost:3000/ventas/nuevaVenta";
+        const url = "http://localhost:3000/ventas/nuevaVenta"; 
 
         const datos = {
             idUsuario: usuarioId,
@@ -19,7 +18,7 @@ export default function NuevaVenta() {
         };
 
         try {
-            const response = await axios.post(url, datos); 
+            const response = await axios.post(url, datos);
             console.log("Venta agregada:", response.data);
             location.replace("http://localhost:3001/ventas/mostrar"); 
         } catch (error) {
@@ -58,7 +57,7 @@ export default function NuevaVenta() {
                                 className="form-control mb-3"
                                 type="text" 
                                 value={cantidad} 
-                                onChange={(e) => setCantidad(e.target.value)} 
+                                onChange={(e) => setCantidad(e.target.value)}
                                 required 
                             />
                         </div>
